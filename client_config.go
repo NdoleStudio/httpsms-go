@@ -1,17 +1,16 @@
-package client
+package httpsms
 
 import "net/http"
 
 type clientConfig struct {
 	httpClient *http.Client
-	delay      int
+	apiKey     string
 	baseURL    string
 }
 
 func defaultClientConfig() *clientConfig {
 	return &clientConfig{
 		httpClient: http.DefaultClient,
-		delay:      0,
-		baseURL:    "https://httpstat.us",
+		baseURL:    "https://api.httpsms.com",
 	}
 }

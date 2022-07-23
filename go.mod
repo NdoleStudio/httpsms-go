@@ -1,4 +1,4 @@
-module github.com/NdoleStudio/go-http-client
+module github.com/NdoleStudio/httpsms-go
 
 go 1.17
 

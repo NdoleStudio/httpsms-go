@@ -1,4 +1,4 @@
-package client
+package httpsms
 
 import (
 	"bytes"
@@ -8,7 +8,6 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 )
 
 type service struct {
@@ -21,9 +20,9 @@ type Client struct {
 	httpClient *http.Client
 	common     service
 	baseURL    string
-	delay      int
+	apiKey     string
 
-	Status *statusService
+	Messages *messagesService
 }
 
 // New creates and returns a new campay.Client from a slice of campay.ClientOption.
@@ -36,12 +35,12 @@ func New(options ...Option) *Client {
 
 	client := &Client{
 		httpClient: config.httpClient,
-		delay:      config.delay,
+		apiKey:     config.apiKey,
 		baseURL:    config.baseURL,
 	}
 
 	client.common.client = client
-	client.Status = (*statusService)(&client.common)
+	client.Messages = (*messagesService)(&client.common)
 	return client
 }
 
@@ -67,22 +66,9 @@ func (client *Client) newRequest(ctx context.Context, method, uri string, body i
 
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
-
-	if client.delay > 0 {
-		client.addURLParams(req, map[string]string{"sleep": strconv.Itoa(client.delay)})
-	}
+	req.Header.Set("x-api-key", client.apiKey)
 
 	return req, nil
-}
-
-// addURLParams adds urls parameters to an *http.Request
-func (client *Client) addURLParams(request *http.Request, params map[string]string) *http.Request {
-	q := request.URL.Query()
-	for key, value := range params {
-		q.Add(key, value)
-	}
-	request.URL.RawQuery = q.Encode()
-	return request
 }
 
 // do carries out an HTTP request and returns a Response
