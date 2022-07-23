@@ -66,9 +66,9 @@ if err != nil {
 
 ```go
 message, response, err := client.Messages.Send(context.Background(), &MessageSendParams{
-  Content: "This is a sample text message",
-  From:    "+18005550199",
-  To:      "+18005550100",
+    Content: "This is a sample text message",
+    From:    "+18005550199",
+    To:      "+18005550100",
 })
 
 if err != nil {
