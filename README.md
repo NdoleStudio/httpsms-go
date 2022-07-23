@@ -41,11 +41,11 @@ An instance of the client can be created using `httpsms.New()`.
 package main
 
 import (
-	"github.com/NdoleStudio/httpsms-go"
+    "github.com/NdoleStudio/httpsms-go"
 )
 
 func main()  {
-	client := htpsms.New(htpsms.WithDelay(200))
+    client := htpsms.New(htpsms.WithDelay(200))
 }
 ```
 
