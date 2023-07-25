@@ -28,8 +28,14 @@ import "github.com/NdoleStudio/httpsms-go"
 
 ## Implemented
 
-- [Messages](#messages)
-    - `POST /v1/messages/send`: Send a new SMS Message
+- [x] **[Messages](#messages)**
+  - [x] `POST /v1/messages/send`: Send a new SMS
+  - [x] `GET /v1/messages`: Get list of messages which are exchanged between 2 phone numbers.
+- [x] **Heartbeats**
+  - [x] `GET /v1/heartbeats`: Get the heartbeats of an Android Phone
+- [x] **Message Threads**
+  - [x] `GET /v1/message-threads`: Get the message threads of a phone number
+
 
 ## Usage
 
