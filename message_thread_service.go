@@ -13,8 +13,8 @@ type MessageThreadService service
 // Index returns a list of contacts which a phone number has communicated with (threads). It will be sorted by timestamp in descending order.
 //
 // API Docs: https://api.httpsms.com/index.html#/Channel%20Threads/get_message_threads
-func (service *MessageThreadService) Index(ctx context.Context, params *HeartbeatIndexParams) (*MessageThreadsResponse, *Response, error) {
-	request, err := service.client.newRequest(ctx, http.MethodGet, "/v1/messageThreads", nil)
+func (service *MessageThreadService) Index(ctx context.Context, params *MessageThreadIndexParams) (*MessageThreadsResponse, *Response, error) {
+	request, err := service.client.newRequest(ctx, http.MethodGet, "/v1/message-threads", nil)
 	if err != nil {
 		return nil, nil, err
 	}
