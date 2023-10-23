@@ -23,6 +23,7 @@ type MessageThread struct {
 	IsArchived         bool      `json:"is_archived" example:"false"`
 	UserID             string    `json:"user_id" example:"WB7DRDWrJZRGbYrv2CKGkqbzvqdC"`
 	Color              string    `json:"color" example:"indigo"`
+	Status             string    `json:"status" example:"pending"`
 	LastMessageContent string    `json:"last_message_content" example:"This is a sample message content"`
 	LastMessageID      uuid.UUID `json:"last_message_id" example:"32343a19-da5e-4b1b-a767-3298a73703ca"`
 	CreatedAt          time.Time `json:"created_at" example:"2022-06-05T14:26:09.527976+03:00"`
