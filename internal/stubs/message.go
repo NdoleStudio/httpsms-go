@@ -27,6 +27,7 @@ func MessagesSendResponse() []byte {
 				"sent_at": "2022-06-05T14:26:09.527976+03:00",
 				"sim": "SIM1",
 				"status": "pending",
+				"encrypted": false,	
 				"type": "mobile-terminated",
 				"updated_at": "2022-06-05T14:26:10.303278+03:00",
 				"user_id": "WB7DRDWrJZRGbYrv2CKGkqbzvqdC"

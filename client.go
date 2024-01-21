@@ -24,6 +24,7 @@ type Client struct {
 	MessageThreads *MessageThreadService
 	Heartbeats     *HeartbeatService
 	Messages       *MessageService
+	Cipher         *CipherService
 }
 
 // New creates and returns a new campay.Client from a slice of campay.ClientOption.
@@ -44,6 +45,8 @@ func New(options ...Option) *Client {
 	client.Messages = (*MessageService)(&client.common)
 	client.Heartbeats = (*HeartbeatService)(&client.common)
 	client.MessageThreads = (*MessageThreadService)(&client.common)
+	client.Cipher = (*CipherService)(&client.common)
+
 	return client
 }
 

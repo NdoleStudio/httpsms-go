@@ -10,6 +10,7 @@ import (
 type MessageSendParams struct {
 	Content   string `json:"content"`
 	From      string `json:"from"`
+	Encrypted bool   `json:"encrypted"`
 	RequestID string `json:"request_id,omitempty"`
 	To        string `json:"to"`
 }
@@ -39,6 +40,8 @@ type Message struct {
 	Content   string    `json:"content" example:"This is a sample text message"`
 	Type      string    `json:"type" example:"mobile-terminated"`
 	Status    string    `json:"status" example:"pending"`
+	Encrypted bool      `json:"encrypted" example:"false"`
+
 	// SIM is the SIM card to use to send the message
 	// * SMS1: use the SIM card in slot 1
 	// * SMS2: use the SIM card in slot 2
