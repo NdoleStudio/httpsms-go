@@ -35,6 +35,9 @@ import "github.com/NdoleStudio/httpsms-go"
   - [x] `GET /v1/heartbeats`: Get the heartbeats of an Android Phone
 - [x] **Message Threads**
   - [x] `GET /v1/message-threads`: Get the message threads of a phone number
+- [x] **Cipher**
+  - [x] `Encrypt`: Encrypt the content of a message to cipher text
+  - [x] `Decrypt`: Decrypt an encrypted message content to plain text
 
 
 ## Usage
