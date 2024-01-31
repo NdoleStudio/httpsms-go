@@ -3,6 +3,7 @@ package httpsms
 import (
 	"context"
 	"encoding/json"
+	"github.com/google/uuid"
 	"net/http"
 	"strconv"
 )
@@ -41,4 +42,16 @@ func (service *MessageThreadService) Index(ctx context.Context, params *MessageT
 	}
 
 	return messageThreads, response, nil
+}
+
+// Delete a message thread from the database and also deletes all the messages in the thread.
+//
+// API Docs: https://api.httpsms.com/index.html#/MessageThreads/delete_message_threads__messageThreadID_
+func (service *MessageThreadService) Delete(ctx context.Context, messageThreadID uuid.UUID) (*Response, error) {
+	request, err := service.client.newRequest(ctx, http.MethodDelete, "/v1/message-threads/"+messageThreadID.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return service.client.do(request)
 }

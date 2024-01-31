@@ -45,7 +45,7 @@ func TestHeartbeatService_IndexWithError(t *testing.T) {
 
 	// Arrange
 	apiKey := "test-api-key"
-	server := helpers.MakeTestServer(http.StatusInternalServerError, stubs.MessagesSendErrorResponse())
+	server := helpers.MakeTestServer(http.StatusInternalServerError, stubs.HttpInternalServerErrorResponse())
 	client := New(WithBaseURL(server.URL), WithAPIKey(apiKey))
 
 	// Act
@@ -59,7 +59,7 @@ func TestHeartbeatService_IndexWithError(t *testing.T) {
 	// Assert
 	assert.NotNil(t, err)
 	assert.Equal(t, http.StatusInternalServerError, response.HTTPResponse.StatusCode)
-	assert.Equal(t, string(stubs.MessagesSendErrorResponse()), string(*response.Body))
+	assert.Equal(t, string(stubs.HttpInternalServerErrorResponse()), string(*response.Body))
 
 	// Teardown
 	server.Close()

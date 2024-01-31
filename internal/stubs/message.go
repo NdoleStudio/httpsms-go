@@ -37,13 +37,3 @@ func MessagesSendResponse() []byte {
 	}
 `)
 }
-
-// MessagesSendErrorResponse internal error response
-func MessagesSendErrorResponse() []byte {
-	return []byte(`
-		{
-			"message": "We ran into an internal error while handling the request.",
-			"status": "error"
-		}
-`)
-}
