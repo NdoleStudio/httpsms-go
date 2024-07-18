@@ -55,7 +55,7 @@ import (
 )
 
 func main()  {
-    client := htpsms.New(htpsms.WithDelay(200))
+    client := htpsms.New(htpsms.WithAPIKey(/* API Key from https://httpsms.com/settings */))
 }
 ```
 
