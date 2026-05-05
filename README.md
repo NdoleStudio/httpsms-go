@@ -39,6 +39,13 @@ import "github.com/NdoleStudio/httpsms-go"
 - [x] **Cipher**
   - [x] `Encrypt`: Encrypt the content of a message to cipher text
   - [x] `Decrypt`: Decrypt an encrypted message content to plain text
+- [x] **Phones**
+  - [x] `PUT /v1/phones`: Create or update a phone
+  - [x] `PUT /v1/phones/fcm-token`: Bind an FCM token to a phone
+- [x] **Phone API Keys**
+  - [x] `POST /v1/phone-api-keys/`: Create a new phone API key
+- [x] **Webhooks**
+  - [x] `POST /v1/webhooks`: Create a new webhook
 
 
 ## Usage
