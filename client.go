@@ -25,6 +25,9 @@ type Client struct {
 	Heartbeats     *HeartbeatService
 	Messages       *MessageService
 	Cipher         *CipherService
+	Phones         *PhoneService
+	PhoneAPIKeys   *PhoneAPIKeyService
+	Webhooks       *WebhookService
 }
 
 // New creates and returns a new campay.Client from a slice of campay.ClientOption.
@@ -46,6 +49,9 @@ func New(options ...Option) *Client {
 	client.Heartbeats = (*HeartbeatService)(&client.common)
 	client.MessageThreads = (*MessageThreadService)(&client.common)
 	client.Cipher = (*CipherService)(&client.common)
+	client.Phones = (*PhoneService)(&client.common)
+	client.PhoneAPIKeys = (*PhoneAPIKeyService)(&client.common)
+	client.Webhooks = (*WebhookService)(&client.common)
 
 	return client
 }
