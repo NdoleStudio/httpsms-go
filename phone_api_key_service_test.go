@@ -77,7 +77,7 @@ func TestPhoneAPIKeyService_StoreRequest(t *testing.T) {
 	// Assert
 	assert.Nil(t, err)
 	assert.Equal(t, http.MethodPost, capturedRequest.Method)
-	assert.Equal(t, "/v1/phone-api-keys/", capturedRequest.URL.Path)
+	assert.Equal(t, "/v1/phone-api-keys", capturedRequest.URL.Path)
 	assert.Equal(t, "application/json", capturedRequest.Header.Get("Content-Type"))
 	assert.Equal(t, apiKey, capturedRequest.Header.Get("x-api-key"))
 

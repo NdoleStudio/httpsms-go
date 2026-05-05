@@ -25,7 +25,7 @@ func TestWebhookService_Store(t *testing.T) {
 		SigningKey:   "whsec_test_signing_key",
 		URL:          "https://example.com/webhook",
 		PhoneNumbers: []string{"+18005550199"},
-		Events:       []string{"message.received", "message.sent"},
+		Events:       []string{EventTypeMessagePhoneReceived, EventTypeMessagePhoneSent},
 	})
 
 	// Assert
@@ -53,7 +53,7 @@ func TestWebhookService_StoreWithError(t *testing.T) {
 		SigningKey:   "whsec_test_signing_key",
 		URL:          "https://example.com/webhook",
 		PhoneNumbers: []string{"+18005550199"},
-		Events:       []string{"message.received"},
+		Events:       []string{EventTypeMessagePhoneReceived},
 	})
 
 	// Assert
@@ -80,7 +80,7 @@ func TestWebhookService_StoreRequest(t *testing.T) {
 		SigningKey:   "whsec_test_signing_key",
 		URL:          "https://example.com/webhook",
 		PhoneNumbers: []string{"+18005550199"},
-		Events:       []string{"message.received", "message.sent"},
+		Events:       []string{EventTypeMessagePhoneReceived, EventTypeMessagePhoneSent},
 	})
 
 	// Assert

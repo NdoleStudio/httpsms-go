@@ -21,13 +21,18 @@ func TestPhoneService_Upsert(t *testing.T) {
 	client := New(WithBaseURL(server.URL), WithAPIKey(apiKey))
 
 	// Act
+	fcmToken := "test-fcm-token"
+	messagesPerMinute := uint(5)
+	maxSendAttempts := uint(3)
+	messageExpiration := uint(3600)
+	sim := "SIM1"
 	phone, response, err := client.Phones.Upsert(context.Background(), &PhoneUpsertParams{
 		PhoneNumber:              "+18005550199",
-		FcmToken:                 "test-fcm-token",
-		MessagesPerMinute:        5,
-		MaxSendAttempts:          3,
-		MessageExpirationSeconds: 3600,
-		SIM:                      "SIM1",
+		FcmToken:                 &fcmToken,
+		MessagesPerMinute:        &messagesPerMinute,
+		MaxSendAttempts:          &maxSendAttempts,
+		MessageExpirationSeconds: &messageExpiration,
+		SIM:                      &sim,
 	})
 
 	// Assert
@@ -75,10 +80,12 @@ func TestPhoneService_UpsertRequest(t *testing.T) {
 	client := New(WithBaseURL(server.URL), WithAPIKey(apiKey))
 
 	// Act
+	fcmToken := "test-fcm-token"
+	messagesPerMinute := uint(5)
 	_, _, err := client.Phones.Upsert(context.Background(), &PhoneUpsertParams{
 		PhoneNumber:       "+18005550199",
-		FcmToken:          "test-fcm-token",
-		MessagesPerMinute: 5,
+		FcmToken:          &fcmToken,
+		MessagesPerMinute: &messagesPerMinute,
 	})
 
 	// Assert

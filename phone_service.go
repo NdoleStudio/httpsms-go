@@ -11,12 +11,12 @@ type PhoneService service
 
 // PhoneUpsertParams is the request payload for creating/updating a phone
 type PhoneUpsertParams struct {
-	PhoneNumber              string `json:"phone_number"`
-	FcmToken                 string `json:"fcm_token,omitempty"`
-	MessagesPerMinute        uint   `json:"messages_per_minute,omitempty"`
-	MaxSendAttempts          uint   `json:"max_send_attempts,omitempty"`
-	MessageExpirationSeconds uint   `json:"message_expiration_seconds,omitempty"`
-	SIM                      string `json:"sim,omitempty"`
+	PhoneNumber              string  `json:"phone_number"`
+	FcmToken                 *string `json:"fcm_token,omitempty"`
+	MessagesPerMinute        *uint   `json:"messages_per_minute,omitempty"`
+	MaxSendAttempts          *uint   `json:"max_send_attempts,omitempty"`
+	MessageExpirationSeconds *uint   `json:"message_expiration_seconds,omitempty"`
+	SIM                      *string `json:"sim,omitempty"`
 }
 
 // PhoneFCMTokenParams is the request for binding FCM token to a phone via phone API key

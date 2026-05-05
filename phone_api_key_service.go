@@ -16,7 +16,7 @@ type PhoneAPIKeyStoreParams struct {
 
 // Store adds a new phone api key
 func (service *PhoneAPIKeyService) Store(ctx context.Context, params *PhoneAPIKeyStoreParams) (*PhoneAPIKeyResponse, *Response, error) {
-	request, err := service.client.newRequest(ctx, http.MethodPost, "/v1/phone-api-keys/", params)
+	request, err := service.client.newRequest(ctx, http.MethodPost, "/v1/phone-api-keys", params)
 	if err != nil {
 		return nil, nil, err
 	}

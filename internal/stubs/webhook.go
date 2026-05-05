@@ -10,7 +10,7 @@ func WebhookStoreResponse() []byte {
         "url": "https://example.com/webhook",
         "signing_key": "whsec_test_signing_key",
         "phone_numbers": ["+18005550199"],
-        "events": ["message.received", "message.sent"],
+        "events": ["message.phone.received", "message.phone.sent"],
         "created_at": "2024-01-21T13:07:56.203538Z",
         "updated_at": "2024-01-21T13:07:56.203538Z"
     },
